@@ -1,0 +1,60 @@
+{% extends 'index.html'  %}
+
+{% block title %} About {% endblock title %}
+{% block aboutactive %} active {% endblock aboutactive %}
+
+{%   block body %}
+<div class="container">
+<section class="jumbotron text-center mt-4">
+    <div class="container">
+      <h1 class="jumbotron-heading">अन्नपूर्णा मेस</h1>
+      <p class="lead text-muted">अन्नपूर्णा मेस हे सर्वात उत्कृष्ट मेस येथे स्वादिष्ट खाद्यपदार्थ पुरवण्यासाठी ओळखले जाते
+        नाममात्र किंमत .
+        जे लोक तिथून घरापासून दूर आहेत त्यांच्यासाठी घरासारखे खाद्यपदार्थ खरेदी करण्यासाठी हे एकमेव ठिकाण आहे.
+        अन्नपूर्णा  मेसचे व्यवस्थापन अभिषेक गावंडे ,अजिंक्य भाऊसाहेब 
+        बोराटे करतात ज्यांनी पदवीचे शिक्षण पूर्ण केले आहे आणि तो त्यात सहभागी आहे  या क्षेत्रात 5 वर्षा पासुन कार्यरत आहे.
+        तंत्रज्ञान आणि इंटरनेटच्या मदतीने आम्ही आमच्या ग्राहकांना ज्या सेवांसाठी ओळखतो त्या सेवा देण्यासाठी आम्ही प्रयत्नशील आहोत.</p>
+    </div>
+  </section>
+</div>
+
+<div class="container">
+  {% load static%}
+    <div class="card mx-auto class mb-5   border-dark" style="width: 30rem; height: auto; ">
+        <img class="card-img-top" src="{% static 'images/abhi_info_card.jpeg' %}" alt="image">
+        <div class="card-body " style="background-color: rgb(118, 186, 186);">
+          <h5 class="card-title">
+            अभिषेक विनायक गावंडे</h5>
+          <p class="card-text">संचालक
+            
+            <br>
+
+            <i class="bi-telephone" style="font-size: 20px;"></i> 9405012925
+          <br>
+          <i class="bi-instagram" style="font-size: 20px;"></i> abhee_gawande
+        </p>
+           
+        
+        
+          <!-- <a href="https://www.linkedin.com/in/abhishek-gawande-ab67561b7/?originalSubdomain=in" class="btn btn-primary">Contact</a> -->
+        </div>
+      </div>
+       
+      <div class="card mx-auto class border-dark border-3px mb-5 " style="width: 30rem; height: auto; ">
+        <img class="card-img-top" src="{% static 'images/ajinkya.jpeg' %}" alt="image">
+        <div class="card-body" style="background-color: rgb(118, 186, 186);">
+          <h5 class="card-title">अजिंक्य भाऊसाहेब 
+            बोराटे</h5>
+          <p class="card-text"> संचालक <br> 
+            <i class="bi-telephone" style="font-size: 20px;"></i> 9028798550
+            <br>
+            <i class="bi-instagram" style="font-size: 20px;"></i> ajinkya_borate
+          </p>
+          <!-- <a href="https://www.linkedin.com/in/abhishek-gawande-ab67561b7/?originalSubdomain=in" class="btn btn-primary">Contact</a> -->
+        </div>
+      </div>
+    </div>
+
+  
+
+{% endblock body %}

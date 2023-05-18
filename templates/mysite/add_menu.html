@@ -1,0 +1,31 @@
+{% extends 'home.html' %}
+
+{% block title %} Add Menu{% endblock title %}
+{% block add_menuactive %} active {% endblock add_menuactive %}
+
+{% block body %}
+<div class="container mb-5 my-3 ">
+    <h3>Add_menu</h3>
+<form action="/add_menu" method="POST">
+  
+{% csrf_token %}
+    <div class="form-group">
+      <label for="food1">food1</label>
+      <input type="text" class="form-control" id="food1" name="food1" aria-describedby="food1" placeholder="">
+    </div>
+    <div class="form-group my-2">
+      <label for="food2">Food2</label>
+      <input type="text" class="form-control" id="food2"  name ="food2"placeholder="">
+    </div>
+    <div class="form-group">
+        <label for="food3">Food3</label>
+        <input type="text" class="form-control" id="food3" name="food3" aria-describedby="food3" placeholder="">
+      </div>
+    <div class="form-group my-1">
+        <label for="food4">Food4</label>
+        <input type="text" class="form-control" id="food4" name="food4" placeholder="">
+      </div>
+
+
+
+{% endblock body %}

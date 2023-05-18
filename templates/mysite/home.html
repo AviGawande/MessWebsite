@@ -1,0 +1,174 @@
+{% extends 'index.html'  %}
+{% load static %} 
+
+{% block title %} अन्नपूर्णा मेस {% endblock title %}
+{% block homeactive %} active {% endblock homeactive %}
+
+{% block login-btn %}
+            
+  {% endblock %}
+
+{%   block body %}
+
+<div class="container">
+
+  <div id="demo" class="carousel slide my-3 mt-4" data-ride="carousel">
+      <ul class="carousel-indicators">
+        <li data-target="#demo" data-slide-to="0" class="active"></li>
+        <li data-target="#demo" data-slide-to="1" ></li>
+        <li data-target="#demo" data-slide-to="2" ></li>
+      </ul>
+  
+      <!--Slideshow starts here -->
+      <div class="container carousel-inner no-padding">
+  
+        <div class="carousel-item active">
+          <div class="row d-flex justify-content-center">
+            <div class="card" style="width: 96%;">
+              <img src= '{% static "images/food1.jpeg" %}' class="card-img-top" alt="...">
+            </div>
+         </div>
+        </div>
+  
+        <div class="carousel-item">
+          <div class="row d-flex justify-content-center">
+            <div class="card" style="width: 96%;">
+              <img src='{% static "images/food3.jpg" %}' class="card-img-top" alt="...">
+            </div>
+          </div>
+        </div>
+  
+        <div class="carousel-item">
+          <div class="row d-flex justify-content-center">
+            <div class="card" style="width: 100%;">
+              <img src='{% static "images/food4.jpg" %}' class="card-img-top" alt="...">
+            </div>
+         </div>
+        </div>
+      </div>
+
+  </div>
+   <a class="carousel-control-prev " style="margin-left:3px;" href="#demo" data-slide="next">
+    <span class="carousel-control-prev-icon"></span>
+</a>
+<a class="carousel-control-next " style="margin-right:5px;" href="#demo" data-slide="prev">
+    <span class="carousel-control-next-icon"></span>
+</a>
+
+<div class="container">
+  <div class="jumbotron">    
+
+{% if user.is_staff %}
+
+
+            <a class="btn btn-outline-success" style="height: 40px;" data-toggle='modal' data-target="#AddMenu">Add_menu</a>
+            <div class="modal" id="AddMenu">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h3 class="modal-title">Add Menu</h3>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <form action="" method="post">
+                     {% csrf_token%}
+                      <div class="input-div mt-1">
+                        <input type="text" class="form-control" name="item1" placeholder="Enter First Food item">
+                      </div>
+                      <div class="input-div mt-1">
+                        <input type="text" class="form-control" name="item2" placeholder="Enter Second Food item">
+                      </div>
+                      <div class="input-div mt-1">
+                        <input type="text" class="form-control" name="item3" placeholder="Enter Third Food item">
+                      </div>
+                      <div class="input-div mt-1">
+                        <input type="text" class="form-control" name="item4" placeholder="Enter Fourth Food item">
+                      </div>
+                      <div class="input-div mt-1">
+                        <input type="text" class="form-control" name="item5" placeholder="Enter Fifth Food item">
+                      </div>
+                      <div class="input-div mt-1">
+                        <input type="text" class="form-control" name="item6" placeholder="Enter Sixth Food item">
+                      </div>
+                      <div class="d-grid gap-2 mt-2">
+                        <button class="btn btn-success" type="submit">Add</button>
+                      </div>
+                    </form>
+                  </div>
+                  <div class="modal-footer">
+                    <button class="btn btn-danger" data-dismiss="modal">Close</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+    {% endif %}
+
+  
+    {% if menu %}
+    <h1 class="display-4">Today's Menu</h1>
+    <hr class="my-6">
+    <ul>
+      {% for i in menu%}
+      <li>{{ i.food1 }}</li>
+      <li>{{ i.food2 }}</li>
+      <li>{{ i.food3 }}</li>
+      <li>{{ i.food4 }}</li>
+      <li>{{ i.food5 }}</li>
+      <li>{{ i.food6 }}</li>
+      {% endfor %}
+
+      {% if user.is_staff %}
+      <a href="deletemenu/" class="btn btn-danger float-right">Delete</a>
+       {%endif%} 
+
+      </ul>
+      {% else %}
+      <h2 class="text-center">Menu not Updated yet</h2>
+      {% endif %}  
+  
+  </div>
+</div> 
+
+
+<div class="container">
+<div class="widget">
+  <h2 style="text-align: center;">अन्नपूर्णा मेस</h2>
+  <p style="text-align: center;" >
+    अन्नपूर्णा मेस सर्वात उत्कृष्ट मेस येथे स्वादिष्ट खाद्यपदार्थ पुरवण्यासाठी ओळखले जाते
+  नाममात्र किंमत .
+  <br>
+  जे लोक तिथून घरापासून दूर आहेत त्यांच्यासाठी घरासारखे खाद्यपदार्थ खरेदी करण्यासाठी हे एकमेव ठिकाण आहे.
+  <br>
+  जय गजानन मेसचे व्यवस्थापन अभिषेक गावंडे करतात ज्यांनी पदवीचे शिक्षण पूर्ण केले आहे आणि तो त्यात सहभागी आहे.
+  <br>
+  या क्षेत्रात 5 वर्षे आई-वडिलांनी चालवलेल्या मेसमधून.
+  <br>
+  तंत्रज्ञान आणि इंटरनेटच्या मदतीने आम्ही आमच्या ग्राहकांना ज्या सेवांसाठी ओळखतो त्या सेवा देण्यासाठी आम्ही प्रयत्नशील आहोत.
+  <br>
+  <br>
+  <br>
+<div class="row style="text-align: center;"">
+  <div class="col-md-6">
+      <ul class="check">
+          <li>शुद्ध व थंड पिण्याचे पाणी</li>
+          <li>सात्विक अन्न</li>
+          <li>टिफिन सेवा</li>
+          <li>पार्सल सेवा</li>
+      </ul>
+  </div>
+  <div class="col-md-6">
+      <ul class="check">
+          <li>घरपोच सेवा</li>
+          <li>वतर्मान पत्र व मासिके</li>
+          <li>सेल्फ सर्व्हिस</li>
+          <li>कुटुंबासाठी स्वतंत्र व्यवस्था </li>
+      </ul>
+  </div>
+
+</div>
+</div>
+</div>
+
+{% endblock body %}

@@ -1,0 +1,46 @@
+{% extends 'index.html'  %}
+
+{% block title %} NEW Customer{% endblock title %}
+{% block customeractive %} active {% endblock customeractive %}
+
+{% block body %}
+
+<div class="container mt-3">
+    <h2 >New Customer </h2>
+    <form action="customer" method="POST" >
+    {% csrf_token %}
+      <div class="mb-3 mt-3">
+        <label for="fname">Name:</label>
+        <input type="fname" class="form-control" id="fname" placeholder=" " name="fname">
+      </div>
+
+      <div class="mb-3">
+        <label for="phone">Mobile Number:</label>
+        <input type="phone" class="form-control" id="phone" placeholder=" " name="phone">
+      </div>
+
+      <div class="mb-3">
+        <label for="email">Email:</label>
+        <input type="email" class="form-control" id="email" placeholder=" " name="email">
+      </div>
+
+      <div class="mb-3">
+        <label for="address">Address:</label>
+        <input type="address" class="form-control" id="address" placeholder=" " name="address">
+      </div>
+
+      <div class="mb-3">
+        <label for="college">College</label>
+        <input type="college" class="form-control" id="college" placeholder=" " name="college">
+      </div>
+
+      <div class="mb-3">
+        <label for="year">Class(Year)</label>
+        <input type="year" class="form-control" id="year" placeholder=" " name="year">
+      </div>
+
+      <button type="submit" class="btn btn-primary mb-5" > Submit </button>
+    </div>
+    
+
+{% endblock body %}

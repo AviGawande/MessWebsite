@@ -1,0 +1,52 @@
+ {% extends 'index.html' %}
+ {%block title%} Admin Panel {% endblock %}
+
+ {% block body %}
+ 
+
+
+<div class="container">
+      <div class="jumbotron jumbotron-fluid mt-3">
+            <div class="container">
+              <h1 class="display-4">Display Attendance Record</h1>
+              <p class="lead"></p>
+
+           <hr class="my-data">
+            <ul>
+              <table style="width:100%">
+                <tr>
+                  <th>Sr.no</th>
+                  <th>Name</th>
+                  <th>Contact number</th>
+                  <th>Address</th>
+                </tr>
+                {% for cuss in cus%}
+                <tr>
+                  <td>{{ cuss.sno }}</td>
+                  <td>{{cuss.fname}}</td>
+                  <td>{{cuss.phone}}</td>
+                  <td>{{cuss.address}}</td>
+                  <td>
+                    {% if user.is_staff %}
+                    <a href="deletecustomer" class="btn btn-danger float-right mt-1">Delete</a>
+                     {%endif%} 
+                  </td>
+                </tr>
+                {% endfor %}
+              </table> 
+              
+             
+            </ul>
+            <hr>
+              
+
+            </div>
+          </div>
+</div>
+ 
+ 
+ 
+ 
+ {% endblock body %}
+
+ 

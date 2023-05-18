@@ -1,0 +1,64 @@
+{% extends 'index.html' %}
+
+{% block title %}Attendance {% endblock title %}
+
+{% block body %}
+
+
+
+
+<div class="container">
+    <div class="jumbotron jumbotron-fluid mt-3">
+          <div class="container">
+            <h1 class="display-4">Attendance</h1>
+            <p class="lead">
+                
+           <hr class="my-data">
+           <ul>
+             <form method="POST" action="\attendance\">
+              {% csrf_token %}
+              <div class="mb-3">
+                <label for="date" class="form-label">Date</label>
+                <input type="date" class="form-control" id="date" name="date">
+              </div>
+              <div class="mb-3">
+                <label for="idnum" class="form-label">IDNumber</label>
+                <input type="idnum" class="form-control" id="idnum" name="sno">
+              </div>
+
+              
+              
+                
+                  <!-- <a class="dropdown-item" id="morning" name="morning">Morning</a>
+                  <a class="dropdown-item"id="evening" name="evening">Evening</a>\\ -->
+                  <select name="shift" id="">
+                    <option value="morning">Morning</option>
+                  <option value="evening">Evening</option>
+                  </select>
+    
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+
+            
+
+          </div>
+        </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock body %}
