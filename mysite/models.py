@@ -32,6 +32,7 @@ class Customer(models.Model):
 
 
 
+
 class Menu(models.Model):
     food1 = models.CharField(max_length=255)
     food2 = models.CharField(max_length=255)

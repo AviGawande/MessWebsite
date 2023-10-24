@@ -2,22 +2,30 @@
 
 from pathlib import Path
 import os
-from django.contrib.messages import constants as messages
+
+# from django.contrib.messages import constants as messages
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+import environ
+env = environ.Env()
+environ.Env.read_env()
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
+
+
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-w!n4x-6q)6_6@k8m)lh=q!sbdhq!gydx(k-()+!g^_d*%wzp^q'
 
+# SECRET_KEY = os.environ.get('SECRET_KEY', default='django-insecure-w!n4x-6q)6_6@k8m)lh=q!sbdhq!gydx(k-()+!g^_d*%wzp^q')
+
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
+
 
 ALLOWED_HOSTS = ['*']
+# ALLOWED_HOSTS = ['.vercel.app'] # Allow *.vercel.app
 
 
 # Application definition
@@ -43,6 +51,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'project1.urls'
@@ -66,8 +75,6 @@ TEMPLATES = [
 WSGI_APPLICATION = 'project1.wsgi.application'
 
 
-# Database
-# https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
 # DATABASES = {
 #     'default': {
@@ -75,11 +82,19 @@ WSGI_APPLICATION = 'project1.wsgi.application'
 #         'NAME': BASE_DIR / 'db.sqlite3',
 #     }
 # }
+
+
+
 import dj_database_url
 
 DATABASES = {
-    'default' : dj_database_url.parse('postgres://abhishek:SkVEMMgglgnXzjlRn6upM8HizYTa5HoE@dpg-chhjie8rddl9a76un2sg-a.oregon-postgres.render.com/messmenu')
+	"default": dj_database_url.parse(env('DATABASE_URL'))
+    
 }
+
+         
+
+
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
@@ -116,20 +131,16 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT= BASE_DIR/'staticfiles'
+# STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
-if not DEBUG:
-    # Tell Django to copy statics to the `staticfiles` directory
-    # in your application directory on Render.
-    STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-    # Turn on WhiteNoise storage backend that takes care of compressing static files
-    # and creating unique names for each version so they can safely be cached forever.
-    STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-MESSAGE_TAGS ={
-    messages.ERROR: 'danger',
-    messages.SUCCESS:'success'
-}
+
+
+
+
 
 
 
