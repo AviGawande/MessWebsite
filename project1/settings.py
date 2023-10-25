@@ -1,34 +1,26 @@
-
-
 from pathlib import Path
 import os
 
-# from django.contrib.messages import constants as messages
 
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
+
 BASE_DIR = Path(__file__).resolve().parent.parent
+
+
+SECRET_KEY = 'django-insecure-w!n4x-6q)6_6@k8m)lh=q!sbdhq!gydx(k-()+!g^_d*%wzp^q'
+
+
+
+# SECURITY WARNING: don't run with debug turned on in production!
+DEBUG = False
+
+
+ALLOWED_HOSTS = ['*']
 
 import environ
 env = environ.Env()
 environ.Env.read_env()
 
 
-
-
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-w!n4x-6q)6_6@k8m)lh=q!sbdhq!gydx(k-()+!g^_d*%wzp^q'
-
-# SECRET_KEY = os.environ.get('SECRET_KEY', default='django-insecure-w!n4x-6q)6_6@k8m)lh=q!sbdhq!gydx(k-()+!g^_d*%wzp^q')
-
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
-
-ALLOWED_HOSTS = ['*']
-# ALLOWED_HOSTS = ['.vercel.app'] # Allow *.vercel.app
-
-
-# Application definition
 
 INSTALLED_APPS = [
     
@@ -51,7 +43,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
+    # 'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'project1.urls'
@@ -133,7 +125,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATIC_ROOT= BASE_DIR/'staticfiles'
 # STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+# STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 
 
