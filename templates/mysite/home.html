@@ -10,7 +10,7 @@
 
 {%   block body %}
 
-<div class="container">
+<div class="container" style="z-index: 1; ">
 
   <div id="demo" class="carousel slide my-3 mt-4" data-ride="carousel">
       <ul class="carousel-indicators">
@@ -20,7 +20,7 @@
       </ul>
   
       <!--Slideshow starts here -->
-      <div class="container carousel-inner ">
+      <!-- <div class="container carousel-inner ">
   
         <div class="carousel-item active">
           <div class="row d-flex justify-content-center">
@@ -55,8 +55,46 @@
     </a>
 
   </div>
-  
+   -->
+   <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner">
 
+      <div class="carousel-item active">
+        <div class="row d-flex justify-content-center">
+          <div class="card" style="width: 96%;">
+              <img src="{% static 'images/image.jpg' %}" class="card-img-top" alt="...">
+          </div>
+      </div>
+      
+      </div>
+
+      <div class="carousel-item">
+        <div class="row d-flex justify-content-center">
+          <div class="card" style="width: 96%;">
+              <img src="{% static 'images/image2.jpg' %}" class="card-img-top" alt="...">
+          </div>
+      </div>
+      
+      </div>
+
+      <div class="carousel-item">
+        <div class="row d-flex justify-content-center">
+          <div class="card" style="width: 96%;">
+              <img src="{% static 'images/image3.jpg' %}" class="card-img-top" alt="...">
+          </div>
+      </div>
+      
+       </div>
+      </div>
+      
+    </div>
+    <a class="carousel-control-prev " style="margin-left:3px;" href="#demo" data-slide="next">
+      <span class="carousel-control-prev-icon"></span>
+  </a>
+  <a class="carousel-control-next " style="margin-right:5px;" href="#demo" data-slide="prev">
+      <span class="carousel-control-next-icon"></span>
+  </a>
+  </div>
 
 
 <div class="container">
